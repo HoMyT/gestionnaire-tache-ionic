@@ -1,0 +1,7 @@
+{
+  "name": "gestionnaire-tache",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
