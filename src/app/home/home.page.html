@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Blank...
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,8 +13,11 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    <ion-input formControlName="email" type="email" fill="solid" labelPlacement="floating" helperText="Enter a valid email" errorText="Invalid email"></ion-input>
+    <ion-input formControlName="password" type="password" fill="solid" labelPlacement="floating" helperText="Enter a valid email" errorText="Invalid email"></ion-input>
+
+    <ion-button expand="block" type="submit" [disabled]="loginForm.invalid">Save</ion-button>
+  </form>
 </ion-content>
