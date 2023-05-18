@@ -1,0 +1,31 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Inscription</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+
+    <form [formGroup]="inscriptionUser" (ngSubmit)="onSubmit()">
+      <ion-input formControlName="email" type="email" fill="solid" label="Email" labelPlacement="floating" helperText="Enter a valid email" errorText="Invalid email"></ion-input>
+
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input formControlName="password" type="password" fill="solid" labelPlacement="floating" helperText="Enter a password" [type]="showPassword ? 'text' : 'password'" errorText="Invalid password"></ion-input>
+        <ion-icon [name]="showPassword ? 'eye-off' : 'eye'" slot="end" (click)="togglePasswordVisibility()"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Confirm your password</ion-label>
+        <ion-input formControlName="confirmPassword" type="password" fill="solid" labelPlacement="floating" helperText="Confirm your password" [type]="showPassword ? 'text' : 'password'" errorText="Passwords do not match"></ion-input>
+      </ion-item>
+
+      <ion-input formControlName="name" type="text" fill="solid" label="First Name" labelPlacement="floating" helperText="Enter your first name" errorText="Invalid first name"></ion-input>
+
+      <ion-input formControlName="last_name" type="text" fill="solid" label="Last Name" labelPlacement="floating" helperText="Enter your last name" errorText="Invalid last name"></ion-input>
+
+      <ion-button (click)="onSubmit()" [disabled]="inscriptionUser.invalid">Inscription</ion-button>
+    </form>
+
+
+  </ion-card-content>
+</ion-card>

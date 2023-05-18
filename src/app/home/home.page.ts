@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Storage } from '@ionic/storage';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -8,18 +9,17 @@ import { Storage } from '@ionic/storage';
 })
 export class HomePage {
   loginForm!: FormGroup;
-  constructor(private fb: FormBuilder) {}
+  showPassword : boolean = false;
+  constructor(private fb: FormBuilder, private router: Router) {}
 
-  ngOnInit(): void{
-    this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)])
-    });
+  ngOnInit(): void{}
+
+
+  connexion(){
+    this.router.navigateByUrl('connexion');
   }
-
-  onSubmit() {
-    // Do something with the form data
-    console.log(this.loginForm.value);
+  inscription(){
+    this.router.navigateByUrl('inscription');
   }
 
 }
